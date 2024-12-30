@@ -1,8 +1,3 @@
-let userChoice = getUserChoice();
-let computerChoice = getComputerChoice();
-
-console.log(decideOutcome(userChoice, computerChoice));
-
 function getUserChoice() {
     return prompt("What do you choose?");
 }
@@ -13,39 +8,67 @@ function getComputerChoice() {
     return choices[random];
 }
 
-function decideOutcome(userChoice, computerChoice) {
+function playRound(userChoice, computerChoice) {
     let win = "You win!";
     let lose = "You lose.";
     let draw = "It's a draw.";
+    let outcome = "";
+    let userScore = 0;
+    let computerScore = 0;
 
     switch (userChoice) {
         case 'rock':
             switch (computerChoice) {
                 case 'rock':
-                    return draw;
+                    outcome = draw;
+                    break;
                 case 'paper':
-                    return lose;
+                    ++computerScore;
+                    outcome = lose;
+                    break;
                 case 'scissors':
-                    return win;
+                    ++userScore;
+                    outcome = win;
+                    break;
             }
-
+            break;
         case 'paper':
             switch (computerChoice) {
                 case 'rock':
-                    return draw;
+                    ++userScore
+                    outcome = win;
+                    break;
                 case 'paper':
-                    return lose;
+                    outcome = draw;
+                    break;
                 case 'scissors':
-                    return win;
+                    ++computerScore;
+                    outcome = lose;
+                    break;
             }
+            break;
         case 'scissors':
             switch (computerChoice) {
                 case 'rock':
-                    return draw;
+                    ++computerScore;
+                    outcome = lose;
+                    break;
                 case 'paper':
-                    return lose;
+                    ++userScore;
+                    outcome = win;
+                    break;
                 case 'scissors':
-                    return win;
+                    outcome = draw;
+                    break;
             }
-    }   
+            break;
+    }
+    console.log(outcome);
+    console.log("New score is");
+    console.log("User: " + userScore);
+    console.log("Computer: " + computerScore);
 }
+
+let userChoice = getUserChoice();
+let computerChoice = getComputerChoice();
+playRound(userChoice, computerChoice);
