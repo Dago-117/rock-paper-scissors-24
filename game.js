@@ -1,3 +1,6 @@
+let userScore = 0;
+let computerScore = 0;
+
 function getUserChoice() {
     return prompt("What do you choose?");
 }
@@ -8,13 +11,14 @@ function getComputerChoice() {
     return choices[random];
 }
 
-function playRound(userChoice, computerChoice) {
-    let win = "You win!";
-    let lose = "You lose.";
+function playRound() {
+    let win = "You get a point!";
+    let lose = "Computer gets a point!";
     let draw = "It's a draw.";
     let outcome = "";
-    let userScore = 0;
-    let computerScore = 0;
+
+    let userChoice = getUserChoice();
+    let computerChoice = getComputerChoice();
 
     switch (userChoice) {
         case 'rock':
@@ -63,12 +67,21 @@ function playRound(userChoice, computerChoice) {
             }
             break;
     }
-    console.log(outcome);
-    console.log("New score is");
-    console.log("User: " + userScore);
-    console.log("Computer: " + computerScore);
+    console.log("You pick: " + userChoice + "." + " Computer picks: " + computerChoice);
+    console.log(outcome + " Your score is: " + userScore + " Computer score is: " + computerScore);
+
 }
 
-let userChoice = getUserChoice();
-let computerChoice = getComputerChoice();
-playRound(userChoice, computerChoice);
+function playGame() {
+    for (let i = 0; i < 5; ++i) {
+        playRound();
+    }
+    if (computerScore > userScore)
+        console.log("You lose :(")
+    else if (computerScore < userScore)
+        console.log("You win!")
+    else
+        console.log("It was a draw.")
+}
+
+playGame();
