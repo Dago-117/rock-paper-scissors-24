@@ -1,23 +1,19 @@
 let userScore = 0;
 let computerScore = 0;
 
-function getUserChoice() {
-    return prompt("What do you choose?");
-}
-
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
     let random = Math.floor(Math.random() * 3);
     return choices[random];
 }
 
-function playRound() {
+function playRound(userChoice) {
     let win = "You get a point!";
     let lose = "Computer gets a point!";
     let draw = "It's a draw.";
     let outcome = "";
 
-    let userChoice = getUserChoice();
+    let userChoice = userChoice;
     let computerChoice = getComputerChoice();
 
     switch (userChoice) {
@@ -73,9 +69,6 @@ function playRound() {
 }
 
 function playGame() {
-    for (let i = 0; i < 5; ++i) {
-        playRound();
-    }
     if (computerScore > userScore)
         console.log("You lose :(")
     else if (computerScore < userScore)
@@ -85,3 +78,5 @@ function playGame() {
 }
 
 playGame();
+
+export * from "game.js";

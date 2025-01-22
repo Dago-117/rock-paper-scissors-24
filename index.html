@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game On!</title>
+    <link rel="shortcut icon" href="assets/rock-paper-scissors.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Delius+Unicase:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
 </head>
-<body>
-    <script src="game.js">
 
-    </script>
+<body>
+    <main class="container">
+        <h1>Rock, Paper, Scissors!</h1>
+        <div class="display">
+            <div>
+                <h2>Your Choice</h2>
+                <div class="user-selection"></div>
+            </div>
+            <div class="winner">
+                <h2></h2>
+            </div>
+            <div class="comp-selection">
+                <h2>Computer Choice</h2>
+            </div>
+        </div>
+        <div class="selections">
+            <button id="rock"><span style="width: 200px;">🤜</span></button>
+            <button id="paper">🫱</button>
+            <button id="scissors">✌️</button>
+        </div>
+    </main>
+    <script src="game.js"></script>
+    <script src="dom.js"></script>
 </body>
+
 </html>
